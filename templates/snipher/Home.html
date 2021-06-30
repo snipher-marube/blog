@@ -1,0 +1,215 @@
+{% extends 'main.html' %}
+{% load static %}
+ {% block content %}
+
+     <section class="s1">
+     <div class="main-container">
+         <div class="greeting-wrapper">
+             <h1>Hi Welcome</h1>
+         </div>
+         <h5 style="text-align: center;line-height: 0;">Personalize Theme</h5>
+
+         <div id="theme-options-wrapper">
+             <div data-mode="light" id="light-mode" class="theme-dot"></div>
+             <div data-mode="blue" id="blue-mode" class="theme-dot"></div>
+             <div data-mode="green" id="green-mode" class="theme-dot"></div>
+             <div data-mode="purple" id="purple-mode" class="theme-dot"></div>
+         </div>
+
+         <p id="settings-note">*Theme settings will be saved for<br>your next vist</p>
+     </div>
+     </section>
+
+
+     <main>
+     <!--slides-->
+     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+         <div class="carousel-indicators">
+             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+         </div>
+
+         <div class="carousel-inner">
+             <div class="carousel-item active">
+                 <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+
+                 <div class="container">
+                     <div class="carousel-caption">
+                         <h1>Python Programming</h1>
+                         <p>Learn machine learnin and automate booring stuffs</p>
+                         <p><a class="btn btn-lg btn-primary" href="{% url 'register' %}">Sign up Today</a></p>
+                     </div>
+                 </div>
+             </div>
+             <div class="carousel-item">
+                 <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+
+                 <div class="container">
+                     <div class="carousel-caption text-end">
+                         <h1>Django web Framework</h1>
+                         <p>Django is the the best web framework in 2021. </p>
+                         <p><a class="btn btn-lg btn-primary" href="{% url 'posts' %}">Browse Our Posts</a></p>
+                     </div>
+                 </div>
+             </div>
+             <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                 <span class="visually-hidden">Previous</span>
+             </button>
+             <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                 <span class="visually-hidden">Next</span>
+             </button>
+         </div>
+
+
+         <!--marketing messaging and featuretes-->
+         <!--wrap the rest of the page in another container to center all the content-->
+
+         <div class="container marketing p-5 pt-lg-4">
+
+             <!--Three columns of text below the carousel-->
+             <div class="row">
+                 {% for post in posts %}
+                     <div class="post">
+                         <img class="thumbnail" src="{{ post.thumbnail.url }}">
+                         <div class="post-preview">
+                             <h2 class="post-title">{{ post.headline }}</h2>
+                             <p><a class="btn btn-secondary" href="{% url 'post' post.slug %}">Read more &raquo;</a></p>
+                         </div>
+                     </div>
+                 {% endfor %}
+
+                 <p align="center">
+                     <a href="{% url 'posts' %}">View more posts</a>
+                 </p>
+                 <div class="col-lg-4">
+                     <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+                     <h2>Heading</h2>
+                     <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+                     <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+
+
+
+                 </div><!-- /.col-lg-4 -->
+                 <div class="col-lg-4">
+                     <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+                     <h2>Heading</h2>
+                     <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+                     <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+                 </div><!-- /.col-lg-4 -->
+                 <div class="col-lg-4">
+                     <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+
+                     <h2>Heading</h2>
+                     <p>And  lastly this, the third column of representative placeholder content.</p>
+                     <p><a class="btn btn-secondary" href="#">Read More &raquo;</a></p>
+                 </div>
+             </div>
+
+
+
+             <!--START THE FEATURETTES-->
+             <hr class="featurettes-divider">
+
+             <div class="row featurettes">
+                 <div class="col-md-7">
+                     <h2 class="featurettes-heading">First feauturette heading. <span class="text-muted">It will blow your mind.</span></h2>
+                     <p class="lead">Some great placeholder content for the first featurette here. Imagine some excitting prose here.</p>
+                 </div>
+
+                 <div class="col-md-5">
+                     <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+                 </div>
+             </div>
+
+             <hr class="featurettes-divider">
+
+             <div class="row featurette">
+                 <div class="col-md-7 order-md-2">
+                     <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+                     <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+                 </div>
+                 <div class="col-md-5 order-md-1">
+                     <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+                </div>
+
+             </div>
+             <hr class="featurette-divider">
+
+             <div class="row featurette">
+                 <div class="col-md-7">
+                     <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+                     <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+                 </div>
+                 <div class="col-md-5">
+                     <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+                 </div>
+             </div>
+
+             <hr class="featurette-divider">
+
+             <!-- /END THE FEATURETTES -->
+
+         </div><!-- /.container -->
+
+         <section class="s2">
+             <div class="main-container">
+                 <a href=""></a>
+                 <h3 style="text-align: center;">Get In Touch</h3>
+
+                 <form id="contact-form" method="POST" action="{% url 'send_email' %}">
+                     {% csrf_token %}
+                     <a name="contact"></a>
+
+                     <label>Name</label>
+                     <input required class="input-field" type="text" name="name">
+
+                     <label>Subject</label>
+                     <input required class="input-field" type="text" name="subject">
+
+                     <label>Email</label>
+                     <input required class="input-field" type="text" name="email">
+
+                     <label>Message</label>
+                     <textarea required class="input-field" name="message"></textarea>
+
+                     <input id="submit-btn" type="submit" value="Send">
+                 </form>
+             </div>
+         </section>
+
+
+
+         <!-- FOOTER -->
+         <footer class="container">
+             <p>Fullstack developer with primary focus on Django + Vuejs: <a target="_blank" href="{% static 'resume.pdf' %}">Download Resume</a></p>
+             <div class="social-links">
+                 <h3>My Social Media Handles</h3>
+
+                 <a target="_blank" href="https://www.youtube.com/channel/UC_y320qQnVT9XhRsDiXAEfA">YouTube: @snipher</a>
+                 <br>
+                 <a target="_blank" href="https://twitter.com/SnipherMarube">Twitter: SnipherMarube</a>
+                 <br>
+                 <a target="_blank" href="https://instagram.com/snipher Marube">Instagram: Snipher Marube</a>
+                 <br>
+                 <a target="_blank" href="https://t.me/djangopythonke">Telegram Group: Django Python</a>
+                 <br>
+                 <a target="_blank" href="https://github.com/snipher-marube">Github: snipher-marube</a>
+             </div>
+             <p class="float-end"><a href="#">Back to top</a></p>
+             <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+         </footer>
+         </div>
+
+     </main>
+
+
+ {% endblock content %}
+
